@@ -19,8 +19,8 @@ import { Route as InitiativesRouteImport } from './routes/initiatives'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as TeamRouteImport } from './routes/team'
 import { Route as WorkshopsRouteImport } from './routes/workshops'
-import { Route as CompetitionsCompetitionIdRouteImport } from './routes/competitions.$competitionId'
-import { Route as WorkshopsWorkshopIdRouteImport } from './routes/workshops.$workshopId'
+import { Route as CompetitionsCompetitionIdRouteImport } from './routes/competitions_.$competitionId'
+import { Route as WorkshopsWorkshopIdRouteImport } from './routes/workshops_.$workshopId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -74,41 +74,41 @@ const WorkshopsRoute = WorkshopsRouteImport.update({
 } as any)
 const CompetitionsCompetitionIdRoute =
   CompetitionsCompetitionIdRouteImport.update({
-    id: '/$competitionId',
-    path: '/$competitionId',
-    getParentRoute: () => CompetitionsRoute,
+    id: '/competitions_/$competitionId',
+    path: '/competitions/$competitionId',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const WorkshopsWorkshopIdRoute = WorkshopsWorkshopIdRouteImport.update({
-  id: '/$workshopId',
-  path: '/$workshopId',
-  getParentRoute: () => WorkshopsRoute,
+  id: '/workshops_/$workshopId',
+  path: '/workshops/$workshopId',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/competitions': typeof CompetitionsRouteWithChildren
+  '/competitions': typeof CompetitionsRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/history': typeof HistoryRoute
   '/initiatives': typeof InitiativesRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
-  '/workshops': typeof WorkshopsRouteWithChildren
+  '/workshops': typeof WorkshopsRoute
   '/competitions/$competitionId': typeof CompetitionsCompetitionIdRoute
   '/workshops/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/competitions': typeof CompetitionsRouteWithChildren
+  '/competitions': typeof CompetitionsRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/history': typeof HistoryRoute
   '/initiatives': typeof InitiativesRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
-  '/workshops': typeof WorkshopsRouteWithChildren
+  '/workshops': typeof WorkshopsRoute
   '/competitions/$competitionId': typeof CompetitionsCompetitionIdRoute
   '/workshops/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
@@ -116,16 +116,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/competitions': typeof CompetitionsRouteWithChildren
+  '/competitions': typeof CompetitionsRoute
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/history': typeof HistoryRoute
   '/initiatives': typeof InitiativesRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
-  '/workshops': typeof WorkshopsRouteWithChildren
-  '/competitions/$competitionId': typeof CompetitionsCompetitionIdRoute
-  '/workshops/$workshopId': typeof WorkshopsWorkshopIdRoute
+  '/workshops': typeof WorkshopsRoute
+  '/competitions_/$competitionId': typeof CompetitionsCompetitionIdRoute
+  '/workshops_/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -168,21 +168,23 @@ export interface FileRouteTypes {
     | '/sponsors'
     | '/team'
     | '/workshops'
-    | '/competitions/$competitionId'
-    | '/workshops/$workshopId'
+    | '/competitions_/$competitionId'
+    | '/workshops_/$workshopId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  CompetitionsRoute: typeof CompetitionsRouteWithChildren
+  CompetitionsRoute: typeof CompetitionsRoute
   ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
   HistoryRoute: typeof HistoryRoute
   InitiativesRoute: typeof InitiativesRoute
   SponsorsRoute: typeof SponsorsRoute
   TeamRoute: typeof TeamRoute
-  WorkshopsRoute: typeof WorkshopsRouteWithChildren
+  WorkshopsRoute: typeof WorkshopsRoute
+  CompetitionsCompetitionIdRoute: typeof CompetitionsCompetitionIdRoute
+  WorkshopsWorkshopIdRoute: typeof WorkshopsWorkshopIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -257,58 +259,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkshopsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/competitions/$competitionId': {
-      id: '/competitions/$competitionId'
-      path: '/$competitionId'
+    '/competitions_/$competitionId': {
+      id: '/competitions_/$competitionId'
+      path: '/competitions/$competitionId'
       fullPath: '/competitions/$competitionId'
       preLoaderRoute: typeof CompetitionsCompetitionIdRouteImport
-      parentRoute: typeof CompetitionsRoute
+      parentRoute: typeof rootRouteImport
     }
-    '/workshops/$workshopId': {
-      id: '/workshops/$workshopId'
-      path: '/$workshopId'
+    '/workshops_/$workshopId': {
+      id: '/workshops_/$workshopId'
+      path: '/workshops/$workshopId'
       fullPath: '/workshops/$workshopId'
       preLoaderRoute: typeof WorkshopsWorkshopIdRouteImport
-      parentRoute: typeof WorkshopsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface CompetitionsRouteChildren {
-  CompetitionsCompetitionIdRoute: typeof CompetitionsCompetitionIdRoute
-}
-
-const CompetitionsRouteChildren: CompetitionsRouteChildren = {
-  CompetitionsCompetitionIdRoute: CompetitionsCompetitionIdRoute,
-}
-
-const CompetitionsRouteWithChildren = CompetitionsRoute._addFileChildren(
-  CompetitionsRouteChildren,
-)
-
-interface WorkshopsRouteChildren {
-  WorkshopsWorkshopIdRoute: typeof WorkshopsWorkshopIdRoute
-}
-
-const WorkshopsRouteChildren: WorkshopsRouteChildren = {
-  WorkshopsWorkshopIdRoute: WorkshopsWorkshopIdRoute,
-}
-
-const WorkshopsRouteWithChildren = WorkshopsRoute._addFileChildren(
-  WorkshopsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  CompetitionsRoute: CompetitionsRouteWithChildren,
+  CompetitionsRoute: CompetitionsRoute,
   ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
   HistoryRoute: HistoryRoute,
   InitiativesRoute: InitiativesRoute,
   SponsorsRoute: SponsorsRoute,
   TeamRoute: TeamRoute,
-  WorkshopsRoute: WorkshopsRouteWithChildren,
+  WorkshopsRoute: WorkshopsRoute,
+  CompetitionsCompetitionIdRoute: CompetitionsCompetitionIdRoute,
+  WorkshopsWorkshopIdRoute: WorkshopsWorkshopIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
