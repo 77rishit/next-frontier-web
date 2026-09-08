@@ -19,3 +19,10 @@
 - [x] Replace all hash placeholders and inactive controls with working routes or remove them.
 - [x] Add the custom SIGNAL LOST 404 experience.
 - [x] Verify every route, deep link, navigation control, card, CTA, filter, and external destination on desktop and mobile.
+- [x] Redesign shared ornamental navigation and side rails
+- [x] Rebuild home as layered cinematic 2D world with parallax
+- [x] Create page-specific cinematic environments and frame variants
+- [x] Rework listing, detail, history, team, sponsors, and contact compositions
+- [x] Add mobile festival navigation and reduced-motion behavior
+- [x] Add unique metadata to every content route
+- [x] Verify routes, interactions, links, desktop/mobile visuals, and build
