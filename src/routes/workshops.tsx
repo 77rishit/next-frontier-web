@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { workshops } from "../data/workshops"; import { ListingPage } from "../components/ListingPage";
+export const Route=createFileRoute("/workshops")({head:()=>({meta:[{title:"Workshops — Techfest IIT Bombay"},{name:"description",content:"Explore 25 current official Techfest 2026 workshops."}]}),component:()=> <ListingPage type="workshop" items={workshops}/>});

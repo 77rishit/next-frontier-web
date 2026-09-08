@@ -10,33 +10,181 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CompetitionsRouteImport } from './routes/competitions'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EventsRouteImport } from './routes/events'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as InitiativesRouteImport } from './routes/initiatives'
+import { Route as SponsorsRouteImport } from './routes/sponsors'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as WorkshopsRouteImport } from './routes/workshops'
+import { Route as CompetitionsCompetitionIdRouteImport } from './routes/competitions_.$competitionId'
+import { Route as WorkshopsWorkshopIdRouteImport } from './routes/workshops_.$workshopId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompetitionsRoute = CompetitionsRouteImport.update({
+  id: '/competitions',
+  path: '/competitions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InitiativesRoute = InitiativesRouteImport.update({
+  id: '/initiatives',
+  path: '/initiatives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorsRoute = SponsorsRouteImport.update({
+  id: '/sponsors',
+  path: '/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkshopsRoute = WorkshopsRouteImport.update({
+  id: '/workshops',
+  path: '/workshops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompetitionsCompetitionIdRoute =
+  CompetitionsCompetitionIdRouteImport.update({
+    id: '/competitions_/$competitionId',
+    path: '/competitions/$competitionId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WorkshopsWorkshopIdRoute = WorkshopsWorkshopIdRouteImport.update({
+  id: '/workshops_/$workshopId',
+  path: '/workshops/$workshopId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/competitions': typeof CompetitionsRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/history': typeof HistoryRoute
+  '/initiatives': typeof InitiativesRoute
+  '/sponsors': typeof SponsorsRoute
+  '/team': typeof TeamRoute
+  '/workshops': typeof WorkshopsRoute
+  '/competitions/$competitionId': typeof CompetitionsCompetitionIdRoute
+  '/workshops/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/competitions': typeof CompetitionsRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/history': typeof HistoryRoute
+  '/initiatives': typeof InitiativesRoute
+  '/sponsors': typeof SponsorsRoute
+  '/team': typeof TeamRoute
+  '/workshops': typeof WorkshopsRoute
+  '/competitions/$competitionId': typeof CompetitionsCompetitionIdRoute
+  '/workshops/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/competitions': typeof CompetitionsRoute
+  '/contact': typeof ContactRoute
+  '/events': typeof EventsRoute
+  '/history': typeof HistoryRoute
+  '/initiatives': typeof InitiativesRoute
+  '/sponsors': typeof SponsorsRoute
+  '/team': typeof TeamRoute
+  '/workshops': typeof WorkshopsRoute
+  '/competitions_/$competitionId': typeof CompetitionsCompetitionIdRoute
+  '/workshops_/$workshopId': typeof WorkshopsWorkshopIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/competitions'
+    | '/contact'
+    | '/events'
+    | '/history'
+    | '/initiatives'
+    | '/sponsors'
+    | '/team'
+    | '/workshops'
+    | '/competitions/$competitionId'
+    | '/workshops/$workshopId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/competitions'
+    | '/contact'
+    | '/events'
+    | '/history'
+    | '/initiatives'
+    | '/sponsors'
+    | '/team'
+    | '/workshops'
+    | '/competitions/$competitionId'
+    | '/workshops/$workshopId'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/competitions'
+    | '/contact'
+    | '/events'
+    | '/history'
+    | '/initiatives'
+    | '/sponsors'
+    | '/team'
+    | '/workshops'
+    | '/competitions_/$competitionId'
+    | '/workshops_/$workshopId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  CompetitionsRoute: typeof CompetitionsRoute
+  ContactRoute: typeof ContactRoute
+  EventsRoute: typeof EventsRoute
+  HistoryRoute: typeof HistoryRoute
+  InitiativesRoute: typeof InitiativesRoute
+  SponsorsRoute: typeof SponsorsRoute
+  TeamRoute: typeof TeamRoute
+  WorkshopsRoute: typeof WorkshopsRoute
+  CompetitionsCompetitionIdRoute: typeof CompetitionsCompetitionIdRoute
+  WorkshopsWorkshopIdRoute: typeof WorkshopsWorkshopIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +196,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/competitions': {
+      id: '/competitions'
+      path: '/competitions'
+      fullPath: '/competitions'
+      preLoaderRoute: typeof CompetitionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/initiatives': {
+      id: '/initiatives'
+      path: '/initiatives'
+      fullPath: '/initiatives'
+      preLoaderRoute: typeof InitiativesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors': {
+      id: '/sponsors'
+      path: '/sponsors'
+      fullPath: '/sponsors'
+      preLoaderRoute: typeof SponsorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workshops': {
+      id: '/workshops'
+      path: '/workshops'
+      fullPath: '/workshops'
+      preLoaderRoute: typeof WorkshopsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/competitions_/$competitionId': {
+      id: '/competitions_/$competitionId'
+      path: '/competitions/$competitionId'
+      fullPath: '/competitions/$competitionId'
+      preLoaderRoute: typeof CompetitionsCompetitionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/workshops_/$workshopId': {
+      id: '/workshops_/$workshopId'
+      path: '/workshops/$workshopId'
+      fullPath: '/workshops/$workshopId'
+      preLoaderRoute: typeof WorkshopsWorkshopIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  CompetitionsRoute: CompetitionsRoute,
+  ContactRoute: ContactRoute,
+  EventsRoute: EventsRoute,
+  HistoryRoute: HistoryRoute,
+  InitiativesRoute: InitiativesRoute,
+  SponsorsRoute: SponsorsRoute,
+  TeamRoute: TeamRoute,
+  WorkshopsRoute: WorkshopsRoute,
+  CompetitionsCompetitionIdRoute: CompetitionsCompetitionIdRoute,
+  WorkshopsWorkshopIdRoute: WorkshopsWorkshopIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
