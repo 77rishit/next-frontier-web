@@ -11,11 +11,11 @@
 
 ## Multi-page production upgrade
 
-- [ ] Audit the current official Techfest website for verified events, competitions, workshops, initiatives, history, team, sponsors, contact details, and links.
-- [ ] Move verified content into structured data modules with source references.
-- [ ] Build the shared multi-page navigation and route-transition shell.
-- [ ] Build Home, Events, Competitions, Workshops, Initiatives, About, History, Team, Sponsors, and Contact pages.
-- [ ] Build verified event, competition, workshop, and initiative detail routes.
-- [ ] Replace all hash placeholders and inactive controls with working routes or remove them.
-- [ ] Add the custom SIGNAL LOST 404 experience.
-- [ ] Verify every route, deep link, navigation control, card, CTA, filter, and external destination on desktop and mobile.
+- [x] Audit the current official Techfest website for verified events, competitions, workshops, initiatives, history, team, sponsors, contact details, and links.
+- [x] Move verified content into structured data modules with source references.
+- [x] Build the shared multi-page navigation and route-transition shell.
+- [x] Build Home, Events, Competitions, Workshops, Initiatives, About, History, Team, Sponsors, and Contact pages.
+- [x] Build verified competition and workshop detail routes; current event feeds are explicitly marked unpublished.
+- [x] Replace all hash placeholders and inactive controls with working routes or remove them.
+- [x] Add the custom SIGNAL LOST 404 experience.
+- [x] Verify every route, deep link, navigation control, card, CTA, filter, and external destination on desktop and mobile.
