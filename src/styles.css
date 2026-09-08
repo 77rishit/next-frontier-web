@@ -80,3 +80,9 @@ body{background:var(--void);font-family:var(--font-body);letter-spacing:0}.site-
   .hero-background{filter:saturate(.68) brightness(.72) contrast(1.12)}
   .hero-atmosphere{background:linear-gradient(0deg,#02040df2 0,#02040d55 55%,#02040d99 100%),radial-gradient(ellipse at center,#02040d22,#02040d88 90%)}
 }
+@media (max-width:700px){
+  .hero-sigil{width:100%}
+  .hero-sigil h1{font-size:clamp(2.95rem,15vw,4.75rem);letter-spacing:-.045em;white-space:nowrap}
+  .hero-sigil b{right:.1rem;bottom:-1.25rem;font-size:.72rem}
+  .hero-date{margin-top:.55rem}
+}
