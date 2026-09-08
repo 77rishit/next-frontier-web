@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { competitions } from "../data/competitions"; import { ListingPage } from "../components/ListingPage";
+export const Route=createFileRoute("/competitions")({head:()=>({meta:[{title:"Competitions — Techfest IIT Bombay"},{name:"description",content:"Explore 15 current official Techfest 2026 competitions."}]}),component:()=> <ListingPage type="competition" items={competitions}/>});
