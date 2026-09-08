@@ -6,4 +6,4 @@
 - [x] Build scale, festival, domains, events, legacy, location, CTA and footer sections.
 - [x] Add motion, filters, counters, parallax, map graphics and mobile-specific layouts.
 - [x] Add page metadata, accessible labels, reduced-motion support and a branded favicon.
-- [ ] Complete final settled-state visual verification.
+- [x] Complete final settled-state visual verification.
