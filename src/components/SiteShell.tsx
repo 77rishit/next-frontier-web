@@ -18,6 +18,6 @@ export function SiteShell({children}:{children:ReactNode}){
  </div>
 }
 export function Frame({children,className=""}:{children:ReactNode,className?:string}){return <div className={`tech-frame ${className}`}><i/><i/><i/><i/>{children}</div>}
-export function PageHero({code,title,accent,copy,image}:{code:string,title:string,accent:string,copy:string,image:string}){return <section className="page-hero" style={{"--hero-image":`url(${image})`} as React.CSSProperties}><div className="page-hero-grid"/><div className="page-hero-copy"><p className="eyebrow">{code} // TECHFEST 2026</p><h1>{title}<span>{accent}</span></h1><p>{copy}</p></div><div className="hero-data">19.1334° N<br/>72.9133° E<br/><b>LINK ACTIVE</b></div></section>}
+export function PageHero({code,title,accent,copy,image}:{code:string,title:string,accent:string,copy:string,image:string}){return <section className="page-hero"><img className="page-hero-image" src={image} alt=""/><div className="page-hero-shade"/><div className="page-hero-grid"/><div className="page-hero-copy"><p className="eyebrow">{code} // TECHFEST 2026</p><h1>{title}<span>{accent}</span></h1><p>{copy}</p></div><div className="hero-data">19.1334° N<br/>72.9133° E<br/><b>LINK ACTIVE</b></div></section>}
 export function SourceLink({href}:{href:string}){return <a className="source-link" href={href} target="_blank" rel="noreferrer">Official source <ExternalLink/></a>}
 export function Cta({to,children}:{to:string,children:ReactNode}){return <Link className="angle-cta" to={to}><span>{children}</span><b>↗</b></Link>}
