@@ -13,7 +13,7 @@ export function SiteShell({children}:{children:ReactNode}){
    <nav aria-label="Primary" className={open?"open":""}>{nav.map(([to,label])=><Link key={to} to={to} activeOptions={{exact:to==="/"}}>{label}</Link>)}<Link to="/contact">Contact</Link></nav>
    <button className="nav-toggle" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button>
   </header>
-  <AnimatePresence mode="wait"><motion.main id="main" key={path} initial={reduce?false:{opacity:0,y:14}} animate={{opacity:1,y:0}} exit={reduce?undefined:{opacity:0,y:-10}} transition={{duration:.35}}>{children}</motion.main></AnimatePresence>
+  <AnimatePresence mode="wait"><motion.main id="main" key={path} initial={reduce?false:{opacity:0,y:14}} animate={{opacity:1,y:0}} {...(!reduce?{exit:{opacity:0,y:-10}}:{})} transition={{duration:.35}}>{children}</motion.main></AnimatePresence>
   <footer className="site-footer"><div><Link to="/" className="footer-mark">TECHFEST</Link><p>Asia’s Largest Science & Technology Festival<br/>IIT Bombay · 16–18 December 2026</p></div><div className="footer-links"><Link to="/history">History</Link><Link to="/team">Team</Link><Link to="/sponsors">Sponsors</Link><Link to="/contact">Contact</Link></div><div className="social-links">{socials.map(([n,u])=><a key={n} href={u} target="_blank" rel="noreferrer">{n}<ExternalLink/></a>)}</div></footer>
  </div>
 }
